@@ -1,10 +1,16 @@
 package professor.allocation.diogo.entity;
 
+import java.util.List;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -17,6 +23,12 @@ public class Department {
 	
 	@Column(name = "name", nullable= false, unique = true)
 	private String name;
+	
+	@OnDelete(action = OnDeleteAction.CASCADE)
+	@OneToMany(mappedBy = "department")
+	private List<Professor> professors;
+	
+	
 	
 	public Department() {
 		super();
@@ -45,6 +57,15 @@ public class Department {
 		this.name = name;
 	}
 	
+	
+
+	public List<Professor> getProfessors() {
+		return professors;
+	}
+
+	public void setProfessors(List<Professor> professors) {
+		this.professors = professors;
+	}
 
 	@Override
 	public String toString() {

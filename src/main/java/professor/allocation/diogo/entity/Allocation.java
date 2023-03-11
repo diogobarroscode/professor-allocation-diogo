@@ -10,6 +10,8 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -40,6 +42,14 @@ public class Allocation {
 	
 	@Column(name = "professor_id", nullable = false)
 	private Long professorId;
+	
+	@ManyToOne(optional = false)
+    @JoinColumn(name = "course_id", nullable = false, insertable = false, updatable = false)
+    private Course course;
+	
+	@ManyToOne(optional = false)
+    @JoinColumn(name = "professor_id", nullable = false, insertable = false, updatable = false)
+    private Professor professor;
 	
 	public Allocation() {
 		super();
@@ -101,6 +111,24 @@ public class Allocation {
 
 	public void setProfessorId(Long professorId) {
 		this.professorId = professorId;
+	}
+	
+	
+
+	public Course getCourse() {
+		return course;
+	}
+
+	public void setCourse(Course course) {
+		this.course = course;
+	}
+
+	public Professor getProfessor() {
+		return professor;
+	}
+
+	public void setProfessor(Professor professor) {
+		this.professor = professor;
 	}
 
 	@Override
