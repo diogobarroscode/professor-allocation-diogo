@@ -1,5 +1,9 @@
 package professor.allocation.diogo.repository;
 
-public interface AllocationRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import professor.allocation.diogo.entity.Allocation;
+
+public interface AllocationRepository extends JpaRepository<Allocation, Long> {
 
 }
