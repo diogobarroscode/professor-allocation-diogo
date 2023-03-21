@@ -41,6 +41,16 @@ public class DepartmentRepositoryTest {
 	}
 	
 	@Test
+	public void findByNameContainingIgnoreCase() {
+		
+		String name = "Department";
+		
+		List<Department> departments = departmentRepository.findByNameContainingIgnoreCase(name);
+		
+		departments.forEach(System.out::println);
+	}
+	
+	@Test
 	public void save_create() {
 		Department department = new Department();
 		department.setId(null);
