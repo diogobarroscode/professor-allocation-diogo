@@ -75,22 +75,20 @@ public class CourseRepositoryTest {
 		System.out.println(course);
 	}
 	
+	@Test
+	public void deleteById() {
+		
+		Long id = 1L;
+		
+		courseRepository.deleteById(id);
+		
+	}
+	
+	@Test
+	public void deleteAll() {
+		
+		courseRepository.deleteAllInBatch();
+		
+	}
+	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -78,17 +78,18 @@ public class DepartmentRepositoryTest {
 	
 	@Test
 	public void deleteById() {
+		
 		Long id = 12L;
 		
 		departmentRepository.deleteById(id);
+		
 	}
 	
 	@Test
 	public void deleteAll() {
 		
 		departmentRepository.deleteAllInBatch();
+		
 	}
-	
-	
 	
 }

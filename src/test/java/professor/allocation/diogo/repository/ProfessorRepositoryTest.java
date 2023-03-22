@@ -89,24 +89,20 @@ public class ProfessorRepositoryTest {
 		System.out.println(professor);
 	}
 	
+	@Test
+	public void deleteById() {
+		
+		Long id = 1L;
+		
+		professorRepository.deleteById(id);
+		
+	}
+	
+	@Test
+	public void deleteAll() {
+		
+		professorRepository.deleteAllInBatch();
+		
+	}
+	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

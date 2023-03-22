@@ -97,23 +97,20 @@ public class AllocationRepositoryTest {
 		
 		System.out.println(allocation);
 	}
+	
+	@Test
+	public void deleteById() {
+		
+		Long id = 1L;
+		
+		allocationRepository.deleteById(id);
+	}
+	
+	@Test
+	public void deleteAll() {
+		
+		allocationRepository.deleteAllInBatch();
+		
+	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
