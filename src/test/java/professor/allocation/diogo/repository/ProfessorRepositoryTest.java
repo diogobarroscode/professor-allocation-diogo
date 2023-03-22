@@ -57,6 +57,38 @@ public class ProfessorRepositoryTest {
 		
 		professors.forEach(System.out::println);
 	}
+	
+	@Test
+	public void save_create() {
+		
+		Professor professor = new Professor();
+		
+		professor.setId(null);
+		professor.setName("Professor 1");
+		professor.setCpf("111.111.111-11");
+		professor.setDepartmentId(1L);
+		
+		professor = professorRepository.save(professor);
+		
+		System.out.println(professor);
+		
+	}
+	
+	@Test
+	public void save_update() {
+		
+		Professor professor = new Professor();
+		
+		professor.setId(1L);
+		professor.setName("Professor 2");
+		professor.setCpf("222.222.222-22");
+		professor.setDepartmentId(1L);
+		
+		professor = professorRepository.save(professor);
+		
+		System.out.println(professor);
+	}
+	
 }
 
 

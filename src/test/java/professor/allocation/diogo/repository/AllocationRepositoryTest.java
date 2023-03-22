@@ -1,6 +1,8 @@
 package professor.allocation.diogo.repository;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.DayOfWeek;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -60,6 +62,40 @@ public class AllocationRepositoryTest {
 		List<Allocation> allocations = allocationRepository.findByCourseId(courseId);
 		
 		allocations.forEach(System.out::println);
+	}
+	
+	@Test
+	public void save_create() throws ParseException {
+		
+		Allocation allocation = new Allocation();
+		
+		allocation.setId(null);
+		allocation.setDayOfWeek(DayOfWeek.SUNDAY);
+		allocation.setStartHour(sdf.parse("17:00-0300"));
+		allocation.setEndHour(sdf.parse("18:00-0300"));
+		allocation.setProfessorId(1L);
+		allocation.setCourseId(1L);
+		
+		allocation = allocationRepository.save(allocation);
+		
+		System.out.println(allocation);
+	}
+	
+	@Test
+	public void save_update() throws ParseException{
+		
+		Allocation allocation = new Allocation();
+		
+		allocation.setId(1L);
+		allocation.setDayOfWeek(DayOfWeek.MONDAY);
+		allocation.setStartHour(sdf.parse("19:00-0300"));
+		allocation.setEndHour(sdf.parse("20:00-0300"));
+		allocation.setProfessorId(1L);
+		allocation.setCourseId(1L);
+		
+		allocation = allocationRepository.save(allocation);
+		
+		System.out.println(allocation);
 	}
 
 }

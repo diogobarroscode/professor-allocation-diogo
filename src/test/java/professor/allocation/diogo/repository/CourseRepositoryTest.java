@@ -49,6 +49,32 @@ public class CourseRepositoryTest {
 		courses.forEach(System.out::println);
 	}
 	
+	@Test
+	public void save_create() {
+		
+		Course course = new Course();
+		
+		course.setId(null);
+		course.setName("Course 1");
+		
+		course = courseRepository.save(course);
+		
+		System.out.println(course);
+	}
+	
+	@Test
+	public void save_update() {
+		
+		Course course = new Course();
+		
+		course.setId(1L);
+		course.setName("Course 2");
+		
+		course = courseRepository.save(course);
+		
+		System.out.println(course);
+	}
+	
 }
 
 

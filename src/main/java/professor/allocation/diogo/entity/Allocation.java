@@ -73,27 +73,27 @@ public class Allocation {
 		this.id = id;
 	}
 
-	public DayOfWeek getDay() {
+	public DayOfWeek getDayOfWeek() {
 		return day;
 	}
 
-	public void setDay(DayOfWeek day) {
+	public void setDayOfWeek(DayOfWeek day) {
 		this.day = day;
 	}
 
-	public Date getStart() {
+	public Date getStartHour() {
 		return start;
 	}
 
-	public void setStart(Date start) {
+	public void setStartHour(Date start) {
 		this.start = start;
 	}
 
-	public Date getEnd() {
+	public Date getEndHour() {
 		return end;
 	}
 
-	public void setEnd(Date end) {
+	public void setEndHour(Date end) {
 		this.end = end;
 	}
 

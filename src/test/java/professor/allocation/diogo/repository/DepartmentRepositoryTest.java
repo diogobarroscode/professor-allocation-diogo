@@ -1,6 +1,5 @@
 package professor.allocation.diogo.repository;
 
-import java.text.ParseException;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -52,7 +51,9 @@ public class DepartmentRepositoryTest {
 	
 	@Test
 	public void save_create() {
+		
 		Department department = new Department();
+		
 		department.setId(null);
 		department.setName("Department 6");
 		
@@ -63,7 +64,8 @@ public class DepartmentRepositoryTest {
 	}
 	
 	@Test
-	public void save_update() throws ParseException {
+	public void save_update() {
+		
 		Department department = new Department();
 		
 		department.setId(1L);
