@@ -70,10 +70,10 @@ public class AllocationRepositoryTest {
 		Allocation allocation = new Allocation();
 		
 		allocation.setId(null);
-		allocation.setDayOfWeek(DayOfWeek.SUNDAY);
+		allocation.setDayOfWeek(DayOfWeek.MONDAY);
 		allocation.setStartHour(sdf.parse("17:00-0300"));
 		allocation.setEndHour(sdf.parse("18:00-0300"));
-		allocation.setProfessorId(1L);
+		allocation.setProfessorId(2L);
 		allocation.setCourseId(1L);
 		
 		allocation = allocationRepository.save(allocation);

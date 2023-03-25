@@ -66,7 +66,7 @@ public class ProfessorRepositoryTest {
 		professor.setId(null);
 		professor.setName("Professor 1");
 		professor.setCpf("111.111.111-11");
-		professor.setDepartmentId(1L);
+		professor.setDepartmentId(8L);
 		
 		professor = professorRepository.save(professor);
 		
