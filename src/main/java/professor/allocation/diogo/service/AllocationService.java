@@ -65,7 +65,7 @@ public class AllocationService {
 	private Allocation saveInternal(Allocation allocation) {
 		
 		if (!isEndHourGreaterThanStartHour(allocation) || hasCollision(allocation)) {
-			throw new RuntimeException();
+			throw new RuntimeException("Houve colisão");
 		}else {
 			allocation = allocationRepository.save(allocation);
 			
@@ -97,7 +97,7 @@ public class AllocationService {
 	private boolean hasCollision(Allocation currentAllocation, Allocation newAllocation) {
 		return !currentAllocation.getId().equals(newAllocation.getId())
 				&& currentAllocation.getDayOfWeek() == newAllocation.getDayOfWeek()
-				&& currentAllocation.getEndHour().compareTo(newAllocation.getEndHour()) < 0
+				&& currentAllocation.getStartHour().compareTo(newAllocation.getEndHour()) < 0
 				&& newAllocation.getStartHour().compareTo(currentAllocation.getEndHour()) < 0;
 	}
 
