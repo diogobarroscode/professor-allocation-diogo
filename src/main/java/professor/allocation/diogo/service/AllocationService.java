@@ -5,16 +5,22 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import professor.allocation.diogo.entity.Allocation;
+import professor.allocation.diogo.entity.Course;
+import professor.allocation.diogo.entity.Professor;
 import professor.allocation.diogo.repository.AllocationRepository;
 
 @Service
 public class AllocationService {
 	
 	private final AllocationRepository allocationRepository;
+	private final ProfessorService professorService;
+    private final CourseService courseService;
 
-	public AllocationService(AllocationRepository allocationRepository) {
+	public AllocationService(AllocationRepository allocationRepository, ProfessorService professorService, CourseService courseService) {
 		super();
 		this.allocationRepository = allocationRepository;
+		this.professorService = professorService;
+		this.courseService = courseService;
 	}
 
 	public List<Allocation> findAll(){
@@ -52,7 +58,7 @@ public class AllocationService {
 	
 	
 	public void deleteById(Long id) {
-		if(allocationRepository.existsById(id)) {
+		if(id != null && allocationRepository.existsById(id)) {
 			allocationRepository.deleteById(id);
 		}
 	}
@@ -68,6 +74,12 @@ public class AllocationService {
 			throw new RuntimeException("Houve colisão");
 		}else {
 			allocation = allocationRepository.save(allocation);
+			
+			Professor professor = professorService.findById(allocation.getProfessorId());
+			allocation.setProfessor(professor);
+			
+			Course course = courseService.findById(allocation.getCourseId());
+			allocation.setCourse(course);
 			
 			return allocation;
 		}
