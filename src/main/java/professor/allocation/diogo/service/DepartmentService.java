@@ -48,6 +48,12 @@ public class DepartmentService {
 		}
 	}
 	
+	public void deleteById(Long id) {
+		if(id != null && departmentRepository.existsById(id)) {
+			departmentRepository.deleteById(id);
+		}
+	}
+	
 	public void deleteAll() {
 		departmentRepository.deleteAllInBatch();
 	}
