@@ -3,6 +3,8 @@ package professor.allocation.diogo.entity;
 import java.time.DayOfWeek;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -43,10 +45,12 @@ public class Allocation {
 	@Column(name = "professor_id", nullable = false)
 	private Long professorId;
 	
+	@JsonIgnoreProperties({"allocations"})
 	@ManyToOne(optional = false)
     @JoinColumn(name = "course_id", nullable = false, insertable = false, updatable = false)
     private Course course;
 	
+	@JsonIgnoreProperties({"allocations"})
 	@ManyToOne(optional = false)
     @JoinColumn(name = "professor_id", nullable = false, insertable = false, updatable = false)
     private Professor professor;
