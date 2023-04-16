@@ -16,6 +16,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import professor.allocation.diogo.entity.Department;
 import professor.allocation.diogo.service.DepartmentService;
 
@@ -29,6 +32,11 @@ public class DepartmentController {
 		super();
 		this.departmentService = departmentService;
 	}
+	
+	@ApiOperation(value = "Find all departments")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "OK")
+    })
 	
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.OK)
